@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SIAKAD Mini FTI Universitas Negeri Gorontalo — Sistem Informasi Akademik (Mahasiswa, Dosen, Admin)" />
+  <title>SIAKAD Mini — FTI Universitas Negeri Gorontalo</title>
+
+  <!-- Font (offline friendly fallback ke system font jika tidak tersedia) -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet lokal -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="min-h-screen bg-slate-100 font-sans text-slate-800 antialiased">
+
+  <!-- ============================================================
+       LOGIN ROOT (full-screen, sidebar disembunyikan saat tampil)
+       ============================================================ -->
+  <div id="login-root"></div>
+
+  <!-- ============================================================
+       APP ROOT (sidebar + topbar + kontainer halaman)
+       ============================================================ -->
+  <div id="app-root" class="hidden min-h-screen">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside id="sidebar"
+             class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col bg-gradient-to-b from-fti-950 via-fti-900 to-fti-800 text-white shadow-2xl transition-transform duration-300 ease-out md:static md:z-auto md:translate-x-0"></aside>
+
+      <!-- Backdrop mobile -->
+      <div id="sidebar-backdrop"
+           class="fixed inset-0 z-30 hidden bg-slate-900/50 backdrop-blur-sm md:hidden"></div>
+
+      <!-- Kolom kanan -->
+      <div class="flex min-w-0 flex-1 flex-col">
+        <header id="topbar"
+                class="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur"></header>
+
+        <main id="page-container" class="flex-1 p-4 md:p-6 lg:p-8"></main>
+
+        <footer class="border-t border-slate-200 bg-white px-6 py-4 text-center text-xs text-slate-400">
+          © 2026 <span class="font-semibold text-slate-500">SIAKAD Mini FTI</span> · Universitas Negeri Gorontalo ·
+          HTML5 + Tailwind CSS + Vanilla JavaScript + LocalStorage
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       ROOT UI GLOBAL: TOAST & MODAL
+       ============================================================ -->
+  <div id="toast-root" class="pointer-events-none fixed right-4 top-4 z-[90] flex w-[min(92vw,380px)] flex-col gap-3"></div>
+  <div id="modal-root" class="hidden fixed inset-0 z-[95]"></div>
+
+  <!-- ============================================================
+       SCRIPT APLIKASI (urutan penting: data -> ui -> pages -> app)
+       ============================================================ -->
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/login.js"></script>
+  <script src="js/pages/mahasiswa.js"></script>
+  <script src="js/pages/dosen.js"></script>
+  <script src="js/pages/admin.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
